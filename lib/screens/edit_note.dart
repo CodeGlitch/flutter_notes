@@ -104,12 +104,14 @@ class EditNote extends StatelessWidget {
   }
 
   updateNoteInfo(Note note, context) async {
-    note.title = _titleController.text;
-    note.description = _descriptionController.text;
-    note.dateUpdated = DateTime.now();
-    Box<Note> notes = Hive.box<Note>(notesBox);
-    await notes.put(noteKey, note);
-    Navigator.of(context).pop();
+    if (_formKey.currentState.validate()) {
+      note.title = _titleController.text;
+      note.description = _descriptionController.text;
+      note.dateUpdated = DateTime.now();
+      Box<Note> notes = Hive.box<Note>(notesBox);
+      await notes.put(noteKey, note);
+      Navigator.of(context).pop();
+    }
   }
 
   deleteNote(context) async {

@@ -92,7 +92,6 @@ class _EditCheckNoteState extends State<EditCheckNote> {
               Hive.box<CheckListNote>(checkListNotesBox);
           reorderNoteItems(clNotes);
           await clNotes.add(CheckListNote("", false, 0, widget.noteParent));
-
           Code().changeUpdatedDate(widget.noteParent);
           loadNoteItems();
           setState(() {});
