@@ -98,9 +98,9 @@ class MyApp extends StatelessWidget {
   getNotesSortedByOrder(List<Note> notes) {
     //ordering note list by position
     notes.sort((a, b) {
-      var adate = a.position;
-      var bdate = b.position;
-      return adate.compareTo(bdate);
+      var aposition = a.position;
+      var bposition = b.position;
+      return aposition.compareTo(bposition);
     });
     return notes;
   }
